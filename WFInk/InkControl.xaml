@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="WFInk.InkControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WFInk"
+             mc:Ignorable="d" 
+             d:DesignHeight="512" d:DesignWidth="512">
+    <Grid>
+        <Canvas x:Name="canvas" Width="512" Height="512" MouseDown="canvas_MouseDown" MouseMove="Canvas_MouseMove" MouseUp="canvas_MouseUp" Background="#FFD33030" Cursor="Pen"/>
+    </Grid>
+</UserControl>

@@ -32,12 +32,11 @@ namespace WFInk
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.axInkPicture1 = new AxMSINKAUTLib.AxInkPicture();
             this.axInkEdit1 = new AxINKEDLib.AxInkEdit();
-            this.canvas = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelView = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.axInkPicture1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axInkEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
             // axInkPicture1
@@ -51,22 +50,11 @@ namespace WFInk
             // axInkEdit1
             // 
             this.axInkEdit1.Enabled = true;
-            this.axInkEdit1.Location = new System.Drawing.Point(413, 12);
+            this.axInkEdit1.Location = new System.Drawing.Point(12, 280);
             this.axInkEdit1.Name = "axInkEdit1";
             this.axInkEdit1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axInkEdit1.OcxState")));
-            this.axInkEdit1.Size = new System.Drawing.Size(380, 472);
+            this.axInkEdit1.Size = new System.Drawing.Size(380, 211);
             this.axInkEdit1.TabIndex = 1;
-            // 
-            // canvas
-            // 
-            this.canvas.BackColor = System.Drawing.SystemColors.Control;
-            this.canvas.Image = ((System.Drawing.Image)(resources.GetObject("canvas.Image")));
-            this.canvas.Location = new System.Drawing.Point(13, 290);
-            this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(382, 200);
-            this.canvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.canvas.TabIndex = 2;
-            this.canvas.TabStop = false;
             // 
             // richTextBox1
             // 
@@ -83,21 +71,28 @@ namespace WFInk
             this.flowLayoutPanel1.Size = new System.Drawing.Size(780, 31);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
+            // panelView
+            // 
+            this.panelView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelView.Location = new System.Drawing.Point(401, 12);
+            this.panelView.Name = "panelView";
+            this.panelView.Size = new System.Drawing.Size(392, 479);
+            this.panelView.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 611);
+            this.Controls.Add(this.panelView);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.canvas);
             this.Controls.Add(this.axInkEdit1);
             this.Controls.Add(this.axInkPicture1);
             this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.axInkPicture1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axInkEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -106,9 +101,9 @@ namespace WFInk
 
         private AxMSINKAUTLib.AxInkPicture axInkPicture1;
         private AxINKEDLib.AxInkEdit axInkEdit1;
-        private System.Windows.Forms.PictureBox canvas;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panelView;
     }
 }
 
