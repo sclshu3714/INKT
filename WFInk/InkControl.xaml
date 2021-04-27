@@ -15,6 +15,7 @@
                     </VisualBrush.Visual>
                 </VisualBrush>
             </InkCanvas.Background>
+            <!--<Rectangle Fill="Transparent" RadiusX="0" RadiusY="0" Margin="0" Stroke="Red" StrokeDashArray="3"/>-->
         </InkCanvas>
 
     </Grid>

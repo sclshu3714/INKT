@@ -66,6 +66,7 @@ namespace WFInk
         private void InkControl_Loaded(object sender, RoutedEventArgs e)
         {
 			this.bgImage.Source = new BitmapImage(new Uri(@"C:\Users\33169\Pictures\pg.png"));
+
 			//this.inkCanvas.DefaultDrawingAttributes.Color = Color.FromRgb(System.Drawing.Color.Red.R, System.Drawing.Color.Red.G, System.Drawing.Color.Red.B);
 			//bmp = new RenderTargetBitmap(RTBWidth, RTBHeight, 96.0, 96.0, PixelFormats.Pbgra32);
 			//ImageBrush brush = new ImageBrush(bmp);
