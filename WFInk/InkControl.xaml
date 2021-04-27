@@ -7,6 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="512" d:DesignWidth="512">
     <Grid>
-        <Canvas x:Name="canvas" Width="512" Height="512" MouseDown="canvas_MouseDown" MouseMove="Canvas_MouseMove" MouseUp="canvas_MouseUp" Background="#FFD33030" Cursor="Pen"/>
+        <InkCanvas x:Name="inkCanvas" Opacity="0.01" Panel.ZIndex="0">
+            <InkCanvas.Background>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Image x:Name="bgImage" Opacity="0.01" Source="/Resources/pg.png"  Panel.ZIndex="0"/>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </InkCanvas.Background>
+        </InkCanvas>
+
     </Grid>
 </UserControl>

@@ -15,6 +15,7 @@ namespace WFInk
 {
 	public partial class MainForm : Form
     {
+		private SetControlRectangle Rectory;
 		public MainForm()
         {
             InitializeComponent();
@@ -22,14 +23,33 @@ namespace WFInk
 		}
 		private void MainForm_Load(object sender, EventArgs e)
 		{
+
 			InkControl ink = new InkControl();
-			ink.Width = this.panelView.Width;
-			ink.Height = this.panelView.Height;
-			ElementHost _elemHost = new ElementHost();
-			_elemHost.Dock = DockStyle.Fill;
-			_elemHost.Child = ink; // 绑定
-			this.panelView.Controls.Add(_elemHost);
-			_elemHost.Show();
+			ink.Width = this.Width;
+			ink.Height = this.Height;
+			//ElementHost elementHost = new ElementHost();
+			//elementHost.Dock = DockStyle.Fill;
+			elementHost.Child = ink; // 绑定
+									 elementHost.BackColor = Color.Transparent;
+									 elementHost.BackColorTransparent = true;
+									 //this.Controls.Add(elementHost);
+									 elementHost.Show();
+			//this.BackColor = Color.Red;
+			//this.TransparencyKey = Color.Red;
+			//this.Opacity = 0.01;
+			//this.BackColor = Color.Red;
+			//this.TransparencyKey = Color.Red;
+			this.FormBorderStyle = FormBorderStyle.None;
+			this.WindowState = FormWindowState.Maximized;
+			ink.GetInkCanvas.EditingMode = System.Windows.Controls.InkCanvasEditingMode.None;
+
+			Rectory = new SetControlRectangle(this);
+            Rectory.SetRectangel += Rectory_SetRectangel;
 		}
-	}
+
+        private void Rectory_SetRectangel(object sender, Rectangle e)
+        {
+            
+        }
+    }
 }

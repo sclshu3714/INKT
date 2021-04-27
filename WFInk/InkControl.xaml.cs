@@ -47,22 +47,32 @@ namespace WFInk
 												// Private myInkCollector As InkCollector
 												// REM 初始化墨迹识别器
 
+		public InkCanvas GetInkCanvas { get { return this.inkCanvas; } }
+
 		public int RTBWidth { get; set; } = 512;
 		public int RTBHeight { get; set; } = 512;
 		public InkControl()
         {
             InitializeComponent();
-            this.Loaded += InkControl_Loaded;
+			this.inkCanvas.DefaultDrawingAttributes.IsHighlighter = true;
+			this.inkCanvas.DefaultDrawingAttributes.IgnorePressure = true;
+			this.inkCanvas.DefaultDrawingAttributes.FitToCurve = true;
+			this.inkCanvas.DefaultDrawingAttributes.StylusTip = System.Windows.Ink.StylusTip.Rectangle;
+			this.inkCanvas.DefaultDrawingAttributes.Width = 5;
+			this.inkCanvas.DefaultDrawingAttributes.Height = 10;
+			this.Loaded += InkControl_Loaded;
         }
 
         private void InkControl_Loaded(object sender, RoutedEventArgs e)
         {
-			bmp = new RenderTargetBitmap(RTBWidth, RTBHeight, 96.0, 96.0, PixelFormats.Pbgra32);
-			ImageBrush brush = new ImageBrush(bmp);
-			brush.Stretch = Stretch.Fill;
-			canvas.Background = brush;
+			this.bgImage.Source = new BitmapImage(new Uri(@"C:\Users\33169\Pictures\pg.png"));
+			//this.inkCanvas.DefaultDrawingAttributes.Color = Color.FromRgb(System.Drawing.Color.Red.R, System.Drawing.Color.Red.G, System.Drawing.Color.Red.B);
+			//bmp = new RenderTargetBitmap(RTBWidth, RTBHeight, 96.0, 96.0, PixelFormats.Pbgra32);
+			//ImageBrush brush = new ImageBrush(bmp);
+			//brush.Stretch = Stretch.Fill;
+			//inkCanvas.Background = brush;
 
-			InitRecognizer();
+			//InitRecognizer();
 		}
 
 		public void InitRecognizer()
@@ -127,7 +137,7 @@ namespace WFInk
 
 		private void canvas_MouseUp(object sender, MouseButtonEventArgs e)
 		{
-			ptEnd = e.MouseDevice.GetPosition(canvas);
+			ptEnd = e.MouseDevice.GetPosition(inkCanvas);
 			PathGeometry g = new PathGeometry();
 			PointInfo infoPrev = ptinfos.Last();
 			Point ptPrev = infoPrev.pt;
@@ -166,7 +176,7 @@ namespace WFInk
 
 		private void Canvas_MouseMove(object sender, MouseEventArgs e)
 		{
-			Point pt = e.GetPosition(canvas);
+			Point pt = e.GetPosition(inkCanvas);
 			Vector dir = new Vector();
 			double len = 0.0;
 			Vector vdir = new Vector();
@@ -236,7 +246,7 @@ namespace WFInk
 		{
 			ptinfos.Clear();
 			geo = new PathGeometry();
-			ptStart = e.MouseDevice.GetPosition(canvas);
+			ptStart = e.MouseDevice.GetPosition(inkCanvas);
 			PointInfo info;
 
 			info.pt = ptStart;

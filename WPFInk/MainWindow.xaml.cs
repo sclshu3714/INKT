@@ -42,7 +42,8 @@ namespace WPFInk
         public MainWindow()
         {
             InitializeComponent();
-        }
+
+		}
 
 		//求垂直与输入向量的向量，顺时针，应该还有更好的写法吧
 		public Vector Perpendicular(Vector v)
