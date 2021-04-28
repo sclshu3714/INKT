@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFInk", "WPFInk\WPFInk.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyInk", "MyInk\MyInk.csproj", "{FC4A3E3A-9205-468C-B608-5DD8D989FE66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaptureScreenDemo", "CaptureScreenDemo\CaptureScreenDemo.csproj", "{EE61AD07-4DEA-4D75-ADEF-DD0C8C3DE76A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RisCaptureLib", "RisCaptureLib\RisCaptureLib.csproj", "{C29D227F-29AD-491F-AD82-575EFE9EC65A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{FC4A3E3A-9205-468C-B608-5DD8D989FE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC4A3E3A-9205-468C-B608-5DD8D989FE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC4A3E3A-9205-468C-B608-5DD8D989FE66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE61AD07-4DEA-4D75-ADEF-DD0C8C3DE76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE61AD07-4DEA-4D75-ADEF-DD0C8C3DE76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE61AD07-4DEA-4D75-ADEF-DD0C8C3DE76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE61AD07-4DEA-4D75-ADEF-DD0C8C3DE76A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C29D227F-29AD-491F-AD82-575EFE9EC65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29D227F-29AD-491F-AD82-575EFE9EC65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29D227F-29AD-491F-AD82-575EFE9EC65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29D227F-29AD-491F-AD82-575EFE9EC65A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
