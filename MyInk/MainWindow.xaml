@@ -4,11 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyInk"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" Topmost="True"
         Loaded="Window_Loaded" 
         Title="MainWindow" Height="450" Width="800">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.01" Color="White"></SolidColorBrush>
+    </Window.Background>
     <Grid>
-        <InkCanvas  x:Name="inkCanvas"/>
-
+        <InkCanvas  x:Name="inkCanvas" Background="Transparent"/>
     </Grid>
 </Window>

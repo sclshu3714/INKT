@@ -37,21 +37,7 @@ namespace MyInk
             drawingAttributes.IsHighlighter = true;
             drawingAttributes.IgnorePressure = true;
             drawingAttributes.FitToCurve = true;
-            Image image = new Image
-            {
-                Width = 100,
-                Height = 100,
-                AllowDrop = true,
-                Source = new BitmapImage(new Uri(@"C:\Users\33169\Pictures\SharedScreenshot.jpg", UriKind.Absolute)),
-            };
-            //Canvas canvas = new Canvas { Width = inkCanvas.ActualWidth, Height = inkCanvas.ActualHeight };
-            inkCanvas.Children.Add(image);
-
-            //canvas.Children.Add(image);
-            //Canvas.SetTop(image, 50);
-            //Canvas.SetLeft(image, 50);
-
-            inkCanvas.EditingMode = InkCanvasEditingMode.Select;
+            inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
         }
         void btn_Click(object sender, RoutedEventArgs e)
         {
