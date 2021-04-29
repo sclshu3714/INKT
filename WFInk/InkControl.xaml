@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="512" d:DesignWidth="512">
     <Grid>
-        <InkCanvas x:Name="inkCanvas" Opacity="0.01" Panel.ZIndex="0">
+        <InkCanvas x:Name="inkCanvas" Panel.ZIndex="0">
             <InkCanvas.Background>
                 <VisualBrush>
                     <VisualBrush.Visual>
@@ -15,8 +15,21 @@
                     </VisualBrush.Visual>
                 </VisualBrush>
             </InkCanvas.Background>
-            <!--<Rectangle Fill="Transparent" RadiusX="0" RadiusY="0" Margin="0" Stroke="Red" StrokeDashArray="3"/>-->
         </InkCanvas>
-
+        <ScrollViewer x:Name="scrList" Width="445" Height="300"  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+            <WrapPanel x:Name="wp" Width="{Binding ElementName=scrList, Path=Width, Mode=OneWay}" Background="Blue" FocusableChanged="WrapPanel_FocusableChanged" MouseDown="WrapPanel_MouseDown">
+                <Image Width="136" Height="88" Source="/Resources/SharedScreenshot.jpg" />
+                <Grid Width="136" Height="88" Background="White" Margin="8,8,0,0"></Grid>
+                <Grid Width="136" Height="88" Background="White" Margin="8,8,0,0"></Grid>
+                <Grid Width="136" Height="88" Background="White" Margin="8,8,0,0"></Grid>
+                <Grid Width="136" Height="88" Background="White" Margin="8,8,0,0"></Grid>
+                <Grid Width="136" Height="88" Background="White" Margin="8,8,0,0"></Grid>
+                <Grid Width="136" Height="88" Background="White" Margin="8,8,0,0"></Grid>
+                <Grid Width="136" Height="88" Background="White" Margin="8,8,0,0"></Grid>
+                <Grid Width="136" Height="88" Background="White" Margin="8,8,0,0"></Grid>
+                <Grid Width="136" Height="88" Background="White" Margin="8,8,0,0"></Grid>
+                <Grid Width="136" Height="88" Background="White" Margin="8,8,0,0"></Grid>
+            </WrapPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

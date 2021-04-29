@@ -256,5 +256,19 @@ namespace WFInk
 			info.len = 0;
 			ptinfos.Add(info);
 		}
-	}
+
+        private void WrapPanel_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
+        private void WrapPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+			if (e.Source is Image Source)
+				wp.Children.Remove(Source);
+			else if(e.Source is Grid grid)
+				wp.Children.Remove(grid);
+
+		}
+    }
 }
