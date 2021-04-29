@@ -30,6 +30,7 @@ namespace RisCaptureLib
 
 
             //ini mask rect
+            //maskRectLeft.Fill = new SolidColorBrush(Color.FromArgb(120, System.Drawing.Color.Red.R, System.Drawing.Color.Red.G, System.Drawing.Color.Red.B));
             maskRectLeft.Fill = maskRectRight.Fill = maskRectTop.Fill = maskRectBottom.Fill = Config.MaskWindowBackground;
 
             //these propeties(x, y...) will not changed

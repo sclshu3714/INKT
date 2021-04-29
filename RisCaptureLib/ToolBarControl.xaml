@@ -6,7 +6,14 @@
              xmlns:local="clr-namespace:RisCaptureLib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Width="240" Height="32">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Height="32" Content="保存" x:Name="buttonSave" Click="buttonSave_Click"/>
+        <Button Grid.Column="1" Height="32" Content="完成" x:Name="buttonComplete" Click="buttonComplete_Click"/>
+        <Button Grid.Column="2" Height="32" Content="取消" x:Name="buttonCancel" Click="buttonCancel_Click"/>
     </Grid>
 </UserControl>
