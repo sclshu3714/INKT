@@ -9,6 +9,8 @@ namespace RisCaptureLib
 
     internal class MaskCanvas : Canvas
     {
+        public delegate void FrameDrawEventHander(Rect rect);
+        public event FrameDrawEventHander OnMove;
         public MaskCanvas()
         {
             Loaded += OnLoaded;
@@ -167,6 +169,8 @@ namespace RisCaptureLib
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
+            if (selectionRegion != Rect.Empty)
+                return;
             //mouse down on this self
             if (IsMouseOnThis(e))
             {
@@ -187,6 +191,15 @@ namespace RisCaptureLib
                 UpdateSelectionRegion(e, UpdateMaskType.ForMouseMoving);
 
                 e.Handled = true;
+                //委托调用
+                //Rect rec = OnMove();
+                if (OnMove != null)
+                {
+                    if (selectionRegion != null)
+                    {
+                        this.OnMove(selectionRegion);
+                    }
+                }
             }
             base.OnMouseMove(e);
         }
@@ -215,14 +228,35 @@ namespace RisCaptureLib
 
         internal void HandleIndicatorMouseDown(MouseButtonEventArgs e)
         {
-            if(e.ClickCount>=2)
+            if (e.ClickCount >= 2)
             {
-                if(MaskWindowOwner != null)
-                {
-                    MaskWindowOwner.ClipSnapshot(GetIndicatorRegion());
-                    ClearSelectionData();
-                }
+                finishAction();
             }
+        }
+
+        public void finishAction()
+        {
+            if (MaskWindowOwner != null)
+            {
+                MaskWindowOwner.ClipSnapshot(GetIndicatorRegion());
+                ClearSelectionData();
+            }
+        }
+
+        public System.Drawing.Bitmap GetSnapBitmap()
+        {
+            System.Drawing.Bitmap saveBitmap = null;
+            if (MaskWindowOwner != null)
+            {
+                Rect clipRegion = GetIndicatorRegion();
+                saveBitmap = MaskWindowOwner.CopyBitmapFromScreenSnapshot(clipRegion);
+
+                //close mask window
+                //Close();
+                //ClearSelectionData();
+            }
+            return saveBitmap;
+
         }
 
         private void PrepareShowMask(Point mouseLoc)
@@ -231,7 +265,7 @@ namespace RisCaptureLib
             selectionBorder.Visibility = Visibility.Visible;
             selectionStartPoint = new Point?(mouseLoc);
 
-            if(!IsMouseCaptured)
+            if (!IsMouseCaptured)
             {
                 CaptureMouse();
             }
@@ -244,12 +278,12 @@ namespace RisCaptureLib
                 selectionStartPoint = null;
             }
 
-            if (selectionStartPoint.HasValue )
+            if (selectionStartPoint.HasValue)
             {
                 selectionEndPoint = e.GetPosition(this);
 
-                var startPoint = (Point) selectionEndPoint;
-                var endPoint = (Point) selectionStartPoint;
+                var startPoint = (Point)selectionEndPoint;
+                var endPoint = (Point)selectionStartPoint;
                 var sX = startPoint.X;
                 var sY = startPoint.Y;
                 var eX = endPoint.X;
@@ -275,7 +309,7 @@ namespace RisCaptureLib
                     if (DefaultSize.HasValue && updateType == UpdateMaskType.ForMouseLeftButtonUp)
                     {
                         isMaskDraging = true;
-                        
+
                         selectionRegion = new Rect(startPoint.X, startPoint.Y, DefaultSize.Value.Width, DefaultSize.Value.Height);
                     }
                     else
@@ -291,6 +325,10 @@ namespace RisCaptureLib
             selectionRegion = region;
         }
 
+        public Rect GetSelectionRegion()
+        {
+            return selectionRegion;
+        }
 
         private void FinishShowMask()
         {
@@ -322,7 +360,7 @@ namespace RisCaptureLib
 
         private void UpdateIndicator(Rect region)
         {
-            if(region.Width<indicator.MinWidth || region.Height<indicator.MinHeight)
+            if (region.Width < indicator.MinWidth || region.Height < indicator.MinHeight)
             {
                 return;
             }
