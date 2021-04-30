@@ -43,8 +43,5 @@ namespace RisCaptureLib
 
            canvasOwner.UpdateSelectionRegion(new Rect(x, y, Width, Height));
         }
-
-        
-  
     }
 }

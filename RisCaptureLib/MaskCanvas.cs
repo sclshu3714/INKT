@@ -31,7 +31,7 @@ namespace RisCaptureLib
 
             //ini mask rect
             //maskRectLeft.Fill = new SolidColorBrush(Color.FromArgb(120, System.Drawing.Color.Red.R, System.Drawing.Color.Red.G, System.Drawing.Color.Red.B));
-            maskRectLeft.Fill = maskRectRight.Fill = maskRectTop.Fill = maskRectBottom.Fill = Config.MaskWindowBackground;
+            maskRectLeft.Fill = maskRectRight.Fill = maskRectTop.Fill = maskRectBottom.Fill = Config.MaskWindowBackgroundBlack;
 
             //these propeties(x, y...) will not changed
             SetLeft(maskRectLeft, 0);
@@ -49,7 +49,7 @@ namespace RisCaptureLib
             Children.Add(maskRectBottom);
 
             //ini selection border
-            selectionBorder.Stroke = Config.SelectionBorderBrush;
+            selectionBorder.Stroke = Config.SelectionBorderBrushDefaut;
             selectionBorder.StrokeThickness = Config.SelectionBorderThickness.Left;
             Children.Add(selectionBorder);
 

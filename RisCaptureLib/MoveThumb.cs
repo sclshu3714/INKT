@@ -52,9 +52,5 @@ namespace RisCaptureLib
                 }
             }
         }
-
-       
-
-      
     }
 }

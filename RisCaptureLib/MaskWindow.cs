@@ -98,7 +98,7 @@ namespace RisCaptureLib
             {
                 return;
             }
-            label.Content = "选中区域大小：" + temRect.Width + "×" + temRect.Height + "宽：" + temRect.Width + "高：" + temRect.Height;
+            label.Content = $"选中区域大小：{temRect.Width} × {temRect.Height}   宽：{temRect.Width}   高：{temRect.Height}";
             if (label != null)
             {
                 Canvas.SetLeft(label, temRect.X);
@@ -106,8 +106,8 @@ namespace RisCaptureLib
             }
             if (toolBarContrl != null)
             {
-                Canvas.SetLeft(toolBarContrl, temRect.X + temRect.Width - 75);
-                Canvas.SetTop(toolBarContrl, temRect.Y + temRect.Height);
+                Canvas.SetLeft(toolBarContrl, temRect.X + temRect.Width - 186);
+                Canvas.SetTop(toolBarContrl, temRect.Y + temRect.Height + 3);
             }
         }
 
@@ -141,8 +141,8 @@ namespace RisCaptureLib
             {
                 toolBarContrl = new ToolBarControl();
                 innerCanvas.Children.Add(toolBarContrl);
-                Canvas.SetLeft(toolBarContrl, location.X - 75);
-                Canvas.SetTop(toolBarContrl, location.Y);
+                Canvas.SetLeft(toolBarContrl, location.X - 186);
+                Canvas.SetTop(toolBarContrl, location.Y + 3);
             }
             toolBarContrl.OnOK += OKAction;
             toolBarContrl.OnCancel += CancelAction;
@@ -302,8 +302,7 @@ namespace RisCaptureLib
             }
             var wX = rec.Width;
             var hY = rec.Height;
-            label.Content = "选中区域大小：" + wX + "×" + hY + "宽：" + wX + "高：" + hY;
-
+            label.Content = $"选中区域大小：{wX} × {hY}   宽：{wX}   高：{hY}";
         }
 
         public void OKAction()
